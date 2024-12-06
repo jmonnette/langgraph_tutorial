@@ -1,0 +1,828 @@
+User: [32;1m[1;3m[chain/start][0m [1m[chain:LangGraph] Entering Chain run with input:
+[0m{
+  "messages": [
+    [
+      "user",
+      "Create an example of a langgraph agent that generates unit tests."
+    ]
+  ]
+}
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:__start__] Entering Chain run with input:
+[0m{
+  "messages": [
+    [
+      "user",
+      "Create an example of a langgraph agent that generates unit tests."
+    ]
+  ]
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:__start__] [0ms] Exiting Chain run with output:
+[0m{
+  "messages": [
+    [
+      "user",
+      "Create an example of a langgraph agent that generates unit tests."
+    ]
+  ]
+}
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher] Entering Chain run with input:
+[0m[inputs]
+Running researcher
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] Entering Prompt run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] [0ms] Exiting Prompt run with output:
+[0m[outputs]
+[32;1m[1;3m[llm/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] Entering LLM run with input:
+[0m{
+  "prompts": [
+    "System: \n        You are a researcher tasked with gathering information that will be used to generate a code solution.\n\n        Solve the problem in multiple steps.  \n        \n        1) First, think of different search queries that would identify up-to-date resources that can help solve \n        the problem, but are outside of your existing knowledgebase.  \n        \n        2) Next, execute those search queries to find the relevant URLs. \n        \n        3) Next, retrieve the details from the URLs and incorporate the retrieved into your research.\n\n        4) Finally, when you have gathered enough information to recommend a solution, you will \n        summarize your research in the form of a Markdown document.  The summary should include your key findings,\n        recommendations for how to solve the problem, code examples that may be relevant to the solution, and any \n        other relevant information.\n\n        Generate a detailed, well-structured, and well documented code solution to address the user's input. \n    \nHuman: Create an example of a langgraph agent that generates unit tests."
+  ]
+}
+[36;1m[1;3m[llm/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] [2.38s] Exiting LLM run with output:
+[0m{
+  "generations": [
+    [
+      {
+        "text": "I'll research the latest information about LangGraph and creating an agent for generating unit tests.",
+        "generation_info": null,
+        "type": "ChatGeneration",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "schema",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": [
+              {
+                "text": "I'll research the latest information about LangGraph and creating an agent for generating unit tests.",
+                "type": "text"
+              },
+              {
+                "id": "toolu_01SWPc3wa5QgQrxhChrcUjyN",
+                "input": {
+                  "query": "LangGraph agent for generating unit tests Python example"
+                },
+                "name": "tavily_search_results_json",
+                "type": "tool_use"
+              }
+            ],
+            "response_metadata": {
+              "id": "msg_015bwF9n5YzWjeAF2CQFXCEw",
+              "model": "claude-3-5-haiku-20241022",
+              "stop_reason": "tool_use",
+              "stop_sequence": null,
+              "usage": {
+                "input_tokens": 680,
+                "output_tokens": 87
+              }
+            },
+            "type": "ai",
+            "id": "run-3c113e04-f0c6-4686-b1c9-a777dbc40a9d-0",
+            "tool_calls": [
+              {
+                "name": "tavily_search_results_json",
+                "args": {
+                  "query": "LangGraph agent for generating unit tests Python example"
+                },
+                "id": "toolu_01SWPc3wa5QgQrxhChrcUjyN",
+                "type": "tool_call"
+              }
+            ],
+            "usage_metadata": {
+              "input_tokens": 680,
+              "output_tokens": 87,
+              "total_tokens": 767,
+              "input_token_details": {}
+            },
+            "invalid_tool_calls": []
+          }
+        }
+      }
+    ]
+  ],
+  "llm_output": {
+    "id": "msg_015bwF9n5YzWjeAF2CQFXCEw",
+    "model": "claude-3-5-haiku-20241022",
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 680,
+      "output_tokens": 87
+    }
+  },
+  "run": null,
+  "type": "LLMResult"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] [2.39s] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] [0ms] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] [0ms] Exiting Chain run with output:
+[0m{
+  "output": "tools"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher] [2.39s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: [{'text': "I'll research the latest information about LangGraph and creating an agent for generating unit tests.", 'type': 'text'}, {'id': 'toolu_01SWPc3wa5QgQrxhChrcUjyN', 'input': {'query': 'LangGraph agent for generating unit tests Python example'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:tools] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[tool/start][0m [1m[chain:LangGraph > chain:tools > tool:tavily_search_results_json] Entering Tool run with input:
+[0m"{'query': 'LangGraph agent for generating unit tests Python example'}"
+[36;1m[1;3m[tool/end][0m [1m[chain:LangGraph > chain:tools > tool:tavily_search_results_json] [3.54s] Exiting Tool run with output:
+[0m"content='[{"url": "https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f", "content": "Building the Graph. With our agents defined, we\'ll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use"}, {"url": "https://github.com/aws-samples/langgraph-multi-agent", "content": "The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user\'s request. The workflow consists of two agent systems: one for"}]' name='tavily_search_results_json' tool_call_id='toolu_01SWPc3wa5QgQrxhChrcUjyN' artifact={'query': 'LangGraph agent for generating unit tests Python example', 'follow_up_questions': None, 'answer': None, 'images': [], 'results': [{'title': 'Hands on LangGraph — Building a multi agent assistant', 'url': 'https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f', 'content': "Building the Graph. With our agents defined, we'll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use", 'score': 0.9797453, 'raw_content': None}, {'title': 'aws-samples/langgraph-multi-agent - GitHub', 'url': 'https://github.com/aws-samples/langgraph-multi-agent', 'content': "The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user's request. The workflow consists of two agent systems: one for", 'score': 0.96628344, 'raw_content': None}], 'response_time': 2.25}"
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:tools > chain:ChannelWrite<tools,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:tools > chain:ChannelWrite<tools,messages,research,generated_code,documentation>] [0ms] Exiting Chain run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:tools] [3.54s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: [{"url": "https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f", "content": "Building the Graph. With our agents defined, we'll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use"}, {"url": "https://github.com/aws-samples/langgraph-multi-agent", "content": "The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user's request. The workflow consists of two agent systems: one for"}]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher] Entering Chain run with input:
+[0m[inputs]
+Running researcher
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] Entering Prompt run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] [0ms] Exiting Prompt run with output:
+[0m[outputs]
+[32;1m[1;3m[llm/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] Entering LLM run with input:
+[0m{
+  "prompts": [
+    "System: \n        You are a researcher tasked with gathering information that will be used to generate a code solution.\n\n        Solve the problem in multiple steps.  \n        \n        1) First, think of different search queries that would identify up-to-date resources that can help solve \n        the problem, but are outside of your existing knowledgebase.  \n        \n        2) Next, execute those search queries to find the relevant URLs. \n        \n        3) Next, retrieve the details from the URLs and incorporate the retrieved into your research.\n\n        4) Finally, when you have gathered enough information to recommend a solution, you will \n        summarize your research in the form of a Markdown document.  The summary should include your key findings,\n        recommendations for how to solve the problem, code examples that may be relevant to the solution, and any \n        other relevant information.\n\n        Generate a detailed, well-structured, and well documented code solution to address the user's input. \n    \nHuman: Create an example of a langgraph agent that generates unit tests.\nAI: [{'text': \"I'll research the latest information about LangGraph and creating an agent for generating unit tests.\", 'type': 'text'}, {'id': 'toolu_01SWPc3wa5QgQrxhChrcUjyN', 'input': {'query': 'LangGraph agent for generating unit tests Python example'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]\nTool: [{\"url\": \"https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f\", \"content\": \"Building the Graph. With our agents defined, we'll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use\"}, {\"url\": \"https://github.com/aws-samples/langgraph-multi-agent\", \"content\": \"The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user's request. The workflow consists of two agent systems: one for\"}]"
+  ]
+}
+[36;1m[1;3m[llm/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] [1.85s] Exiting LLM run with output:
+[0m{
+  "generations": [
+    [
+      {
+        "text": "",
+        "generation_info": null,
+        "type": "ChatGeneration",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "schema",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": [
+              {
+                "id": "toolu_01WFFJ7k6marS6spKV9a6Tbm",
+                "input": {
+                  "query": "LangGraph unit test generation agent implementation with OpenAI"
+                },
+                "name": "tavily_search_results_json",
+                "type": "tool_use"
+              }
+            ],
+            "response_metadata": {
+              "id": "msg_01DTGwJfhu5785yaVzrGLLgD",
+              "model": "claude-3-5-haiku-20241022",
+              "stop_reason": "tool_use",
+              "stop_sequence": null,
+              "usage": {
+                "input_tokens": 962,
+                "output_tokens": 70
+              }
+            },
+            "type": "ai",
+            "id": "run-38f13c4c-a74a-4650-9ee3-956c2e8e66a8-0",
+            "tool_calls": [
+              {
+                "name": "tavily_search_results_json",
+                "args": {
+                  "query": "LangGraph unit test generation agent implementation with OpenAI"
+                },
+                "id": "toolu_01WFFJ7k6marS6spKV9a6Tbm",
+                "type": "tool_call"
+              }
+            ],
+            "usage_metadata": {
+              "input_tokens": 962,
+              "output_tokens": 70,
+              "total_tokens": 1032,
+              "input_token_details": {}
+            },
+            "invalid_tool_calls": []
+          }
+        }
+      }
+    ]
+  ],
+  "llm_output": {
+    "id": "msg_01DTGwJfhu5785yaVzrGLLgD",
+    "model": "claude-3-5-haiku-20241022",
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 962,
+      "output_tokens": 70
+    }
+  },
+  "run": null,
+  "type": "LLMResult"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] [1.86s] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] [1ms] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] [1ms] Exiting Chain run with output:
+[0m{
+  "output": "tools"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher] [1.86s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: [{'id': 'toolu_01WFFJ7k6marS6spKV9a6Tbm', 'input': {'query': 'LangGraph unit test generation agent implementation with OpenAI'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:tools] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[tool/start][0m [1m[chain:LangGraph > chain:tools > tool:tavily_search_results_json] Entering Tool run with input:
+[0m"{'query': 'LangGraph unit test generation agent implementation with OpenAI'}"
+[36;1m[1;3m[tool/end][0m [1m[chain:LangGraph > chain:tools > tool:tavily_search_results_json] [3.87s] Exiting Tool run with output:
+[0m"content='[{"url": "https://github.com/ksm26/AI-Agents-in-LangGraph", "content": "In this course, you\'ll explore key principles of designing AI agents with LangGraph, learning how to build flow-based applications and enhance agent capabilities. Here\'s what you can expect to learn and experience: ... 🔄 LangGraph Implementation: Rebuild your agent using LangGraph, learning about its components and how to combine them"}, {"url": "https://medium.com/@lorevanoudenhove/how-to-build-ai-agents-with-langgraph-a-step-by-step-guide-5d84d9c7e832", "content": "In this step, we’ll define how the AI agent manages its state (the ongoing context of the conversation) and ensure it responds appropriately to the user’s input and tool output. This involves creating a template for the conversation, specifying the tools that the assistant will use, and configuring how the AI agent will respond to user input and trigger different functions (like calculating solar savings). Next, we define the tools that the assistant will use during the interaction, with the primary tool being compute_savings, which calculates potential savings based on the user\'s monthly electricity cost. By following these steps, you have successfully created an AI assistant using LangGraph that can calculate solar panel energy savings based on user inputs."}]' name='tavily_search_results_json' tool_call_id='toolu_01WFFJ7k6marS6spKV9a6Tbm' artifact={'query': 'LangGraph unit test generation agent implementation with OpenAI', 'follow_up_questions': None, 'answer': None, 'images': [], 'results': [{'title': 'ksm26/AI-Agents-in-LangGraph - GitHub', 'url': 'https://github.com/ksm26/AI-Agents-in-LangGraph', 'content': "In this course, you'll explore key principles of designing AI agents with LangGraph, learning how to build flow-based applications and enhance agent capabilities. Here's what you can expect to learn and experience: ... 🔄 LangGraph Implementation: Rebuild your agent using LangGraph, learning about its components and how to combine them", 'score': 0.9980732, 'raw_content': None}, {'title': 'How to Build AI Agents with LangGraph: A Step-by-Step Guide', 'url': 'https://medium.com/@lorevanoudenhove/how-to-build-ai-agents-with-langgraph-a-step-by-step-guide-5d84d9c7e832', 'content': "In this step, we’ll define how the AI agent manages its state (the ongoing context of the conversation) and ensure it responds appropriately to the user’s input and tool output. This involves creating a template for the conversation, specifying the tools that the assistant will use, and configuring how the AI agent will respond to user input and trigger different functions (like calculating solar savings). Next, we define the tools that the assistant will use during the interaction, with the primary tool being compute_savings, which calculates potential savings based on the user's monthly electricity cost. By following these steps, you have successfully created an AI assistant using LangGraph that can calculate solar panel energy savings based on user inputs.", 'score': 0.98365986, 'raw_content': None}], 'response_time': 3.52}"
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:tools > chain:ChannelWrite<tools,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:tools > chain:ChannelWrite<tools,messages,research,generated_code,documentation>] [1ms] Exiting Chain run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:tools] [3.88s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: [{"url": "https://github.com/ksm26/AI-Agents-in-LangGraph", "content": "In this course, you'll explore key principles of designing AI agents with LangGraph, learning how to build flow-based applications and enhance agent capabilities. Here's what you can expect to learn and experience: ... 🔄 LangGraph Implementation: Rebuild your agent using LangGraph, learning about its components and how to combine them"}, {"url": "https://medium.com/@lorevanoudenhove/how-to-build-ai-agents-with-langgraph-a-step-by-step-guide-5d84d9c7e832", "content": "In this step, we’ll define how the AI agent manages its state (the ongoing context of the conversation) and ensure it responds appropriately to the user’s input and tool output. This involves creating a template for the conversation, specifying the tools that the assistant will use, and configuring how the AI agent will respond to user input and trigger different functions (like calculating solar savings). Next, we define the tools that the assistant will use during the interaction, with the primary tool being compute_savings, which calculates potential savings based on the user's monthly electricity cost. By following these steps, you have successfully created an AI assistant using LangGraph that can calculate solar panel energy savings based on user inputs."}]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher] Entering Chain run with input:
+[0m[inputs]
+Running researcher
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] Entering Prompt run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] [1ms] Exiting Prompt run with output:
+[0m[outputs]
+[32;1m[1;3m[llm/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] Entering LLM run with input:
+[0m{
+  "prompts": [
+    "System: \n        You are a researcher tasked with gathering information that will be used to generate a code solution.\n\n        Solve the problem in multiple steps.  \n        \n        1) First, think of different search queries that would identify up-to-date resources that can help solve \n        the problem, but are outside of your existing knowledgebase.  \n        \n        2) Next, execute those search queries to find the relevant URLs. \n        \n        3) Next, retrieve the details from the URLs and incorporate the retrieved into your research.\n\n        4) Finally, when you have gathered enough information to recommend a solution, you will \n        summarize your research in the form of a Markdown document.  The summary should include your key findings,\n        recommendations for how to solve the problem, code examples that may be relevant to the solution, and any \n        other relevant information.\n\n        Generate a detailed, well-structured, and well documented code solution to address the user's input. \n    \nHuman: Create an example of a langgraph agent that generates unit tests.\nAI: [{'text': \"I'll research the latest information about LangGraph and creating an agent for generating unit tests.\", 'type': 'text'}, {'id': 'toolu_01SWPc3wa5QgQrxhChrcUjyN', 'input': {'query': 'LangGraph agent for generating unit tests Python example'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]\nTool: [{\"url\": \"https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f\", \"content\": \"Building the Graph. With our agents defined, we'll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use\"}, {\"url\": \"https://github.com/aws-samples/langgraph-multi-agent\", \"content\": \"The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user's request. The workflow consists of two agent systems: one for\"}]\nAI: [{'id': 'toolu_01WFFJ7k6marS6spKV9a6Tbm', 'input': {'query': 'LangGraph unit test generation agent implementation with OpenAI'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]\nTool: [{\"url\": \"https://github.com/ksm26/AI-Agents-in-LangGraph\", \"content\": \"In this course, you'll explore key principles of designing AI agents with LangGraph, learning how to build flow-based applications and enhance agent capabilities. Here's what you can expect to learn and experience: ... 🔄 LangGraph Implementation: Rebuild your agent using LangGraph, learning about its components and how to combine them\"}, {\"url\": \"https://medium.com/@lorevanoudenhove/how-to-build-ai-agents-with-langgraph-a-step-by-step-guide-5d84d9c7e832\", \"content\": \"In this step, we’ll define how the AI agent manages its state (the ongoing context of the conversation) and ensure it responds appropriately to the user’s input and tool output. This involves creating a template for the conversation, specifying the tools that the assistant will use, and configuring how the AI agent will respond to user input and trigger different functions (like calculating solar savings). Next, we define the tools that the assistant will use during the interaction, with the primary tool being compute_savings, which calculates potential savings based on the user's monthly electricity cost. By following these steps, you have successfully created an AI assistant using LangGraph that can calculate solar panel energy savings based on user inputs.\"}]"
+  ]
+}
+[36;1m[1;3m[llm/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] [1.94s] Exiting LLM run with output:
+[0m{
+  "generations": [
+    [
+      {
+        "text": "Let me search for more specific information about unit test generation:",
+        "generation_info": null,
+        "type": "ChatGeneration",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "schema",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": [
+              {
+                "text": "Let me search for more specific information about unit test generation:",
+                "type": "text"
+              },
+              {
+                "id": "toolu_01TGbg26nEt6rhJGocf49ZKo",
+                "input": {
+                  "query": "Automated unit test generation with AI agents Python example"
+                },
+                "name": "tavily_search_results_json",
+                "type": "tool_use"
+              }
+            ],
+            "response_metadata": {
+              "id": "msg_017CWRxK8XdcS1ZBw2F3dGHR",
+              "model": "claude-3-5-haiku-20241022",
+              "stop_reason": "tool_use",
+              "stop_sequence": null,
+              "usage": {
+                "input_tokens": 1349,
+                "output_tokens": 81
+              }
+            },
+            "type": "ai",
+            "id": "run-8ec46955-ea22-47e5-8755-4550d9e39cfd-0",
+            "tool_calls": [
+              {
+                "name": "tavily_search_results_json",
+                "args": {
+                  "query": "Automated unit test generation with AI agents Python example"
+                },
+                "id": "toolu_01TGbg26nEt6rhJGocf49ZKo",
+                "type": "tool_call"
+              }
+            ],
+            "usage_metadata": {
+              "input_tokens": 1349,
+              "output_tokens": 81,
+              "total_tokens": 1430,
+              "input_token_details": {}
+            },
+            "invalid_tool_calls": []
+          }
+        }
+      }
+    ]
+  ],
+  "llm_output": {
+    "id": "msg_017CWRxK8XdcS1ZBw2F3dGHR",
+    "model": "claude-3-5-haiku-20241022",
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 1349,
+      "output_tokens": 81
+    }
+  },
+  "run": null,
+  "type": "LLMResult"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] [1.94s] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] [0ms] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] [0ms] Exiting Chain run with output:
+[0m{
+  "output": "tools"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher] [1.94s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: [{'text': 'Let me search for more specific information about unit test generation:', 'type': 'text'}, {'id': 'toolu_01TGbg26nEt6rhJGocf49ZKo', 'input': {'query': 'Automated unit test generation with AI agents Python example'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:tools] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[tool/start][0m [1m[chain:LangGraph > chain:tools > tool:tavily_search_results_json] Entering Tool run with input:
+[0m"{'query': 'Automated unit test generation with AI agents Python example'}"
+[36;1m[1;3m[tool/end][0m [1m[chain:LangGraph > chain:tools > tool:tavily_search_results_json] [4.01s] Exiting Tool run with output:
+[0m"content='[{"url": "https://dev.to/davydocsurg/automate-unit-testing-with-cover-agent-the-latest-innovation-from-codiumai-50np", "content": "This interaction is central to the automated test generation process, leveraging the AI\'s capabilities to create high-quality tests. For example, when the AI Caller sends a prompt describing a function in the app.py file, the LLM generates a corresponding unit test in test_app.py. If the initial test does not achieve the desired coverage or"}, {"url": "https://developer.nvidia.com/blog/building-ai-agents-to-automate-software-test-case-creation/", "content": "To streamline this process, the DriveOS team at NVIDIA developed Hephaestus (HEPH), an internal generative AI framework for automatic test generation. HEPH uses LLMs to analyze input documentation and code samples, generating tests that are tailored to the provided requirements. HEPH uses an LLM agent for every step in the test generation process—from document traceability to code generation. Test specification generation: Based on the verification steps from requirements and the identified SWAD and ICD fragments (traceability), HEPH generates both positive and negative test specifications to cover all aspects of the requirement. Based on the verification steps from requirements and the traced SWAD and ICD fragments, HEPH generates test specifications. Test Case Name: Verify successful temperature query for a supported thermal zone"}]' name='tavily_search_results_json' tool_call_id='toolu_01TGbg26nEt6rhJGocf49ZKo' artifact={'query': 'Automated unit test generation with AI agents Python example', 'follow_up_questions': None, 'answer': None, 'images': [], 'results': [{'title': 'Automate Unit Testing with Cover-Agent: The Latest Innovation from ...', 'url': 'https://dev.to/davydocsurg/automate-unit-testing-with-cover-agent-the-latest-innovation-from-codiumai-50np', 'content': "This interaction is central to the automated test generation process, leveraging the AI's capabilities to create high-quality tests. For example, when the AI Caller sends a prompt describing a function in the app.py file, the LLM generates a corresponding unit test in test_app.py. If the initial test does not achieve the desired coverage or", 'score': 0.99378294, 'raw_content': None}, {'title': 'Building AI Agents to Automate Software Test Case Creation', 'url': 'https://developer.nvidia.com/blog/building-ai-agents-to-automate-software-test-case-creation/', 'content': 'To streamline this process, the DriveOS team at NVIDIA developed Hephaestus (HEPH), an internal generative AI framework for automatic test generation. HEPH uses LLMs to analyze input documentation and code samples, generating tests that are tailored to the provided requirements. HEPH uses an LLM agent for every step in the test generation process—from document traceability to code generation. Test specification generation: Based on the verification steps from requirements and the identified SWAD and ICD fragments (traceability), HEPH generates both positive and negative test specifications to cover all aspects of the requirement. Based on the verification steps from requirements and the traced SWAD and ICD fragments, HEPH generates test specifications. Test Case Name: Verify successful temperature query for a supported thermal zone', 'score': 0.94208187, 'raw_content': None}], 'response_time': 3.72}"
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:tools > chain:ChannelWrite<tools,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:tools > chain:ChannelWrite<tools,messages,research,generated_code,documentation>] [1ms] Exiting Chain run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:tools] [4.01s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: [{"url": "https://dev.to/davydocsurg/automate-unit-testing-with-cover-agent-the-latest-innovation-from-codiumai-50np", "content": "This interaction is central to the automated test generation process, leveraging the AI's capabilities to create high-quality tests. For example, when the AI Caller sends a prompt describing a function in the app.py file, the LLM generates a corresponding unit test in test_app.py. If the initial test does not achieve the desired coverage or"}, {"url": "https://developer.nvidia.com/blog/building-ai-agents-to-automate-software-test-case-creation/", "content": "To streamline this process, the DriveOS team at NVIDIA developed Hephaestus (HEPH), an internal generative AI framework for automatic test generation. HEPH uses LLMs to analyze input documentation and code samples, generating tests that are tailored to the provided requirements. HEPH uses an LLM agent for every step in the test generation process—from document traceability to code generation. Test specification generation: Based on the verification steps from requirements and the identified SWAD and ICD fragments (traceability), HEPH generates both positive and negative test specifications to cover all aspects of the requirement. Based on the verification steps from requirements and the traced SWAD and ICD fragments, HEPH generates test specifications. Test Case Name: Verify successful temperature query for a supported thermal zone"}]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher] Entering Chain run with input:
+[0m[inputs]
+Running researcher
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] Entering Prompt run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > prompt:ChatPromptTemplate] [0ms] Exiting Prompt run with output:
+[0m[outputs]
+[32;1m[1;3m[llm/start][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] Entering LLM run with input:
+[0m{
+  "prompts": [
+    "System: \n        You are a researcher tasked with gathering information that will be used to generate a code solution.\n\n        Solve the problem in multiple steps.  \n        \n        1) First, think of different search queries that would identify up-to-date resources that can help solve \n        the problem, but are outside of your existing knowledgebase.  \n        \n        2) Next, execute those search queries to find the relevant URLs. \n        \n        3) Next, retrieve the details from the URLs and incorporate the retrieved into your research.\n\n        4) Finally, when you have gathered enough information to recommend a solution, you will \n        summarize your research in the form of a Markdown document.  The summary should include your key findings,\n        recommendations for how to solve the problem, code examples that may be relevant to the solution, and any \n        other relevant information.\n\n        Generate a detailed, well-structured, and well documented code solution to address the user's input. \n    \nHuman: Create an example of a langgraph agent that generates unit tests.\nAI: [{'text': \"I'll research the latest information about LangGraph and creating an agent for generating unit tests.\", 'type': 'text'}, {'id': 'toolu_01SWPc3wa5QgQrxhChrcUjyN', 'input': {'query': 'LangGraph agent for generating unit tests Python example'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]\nTool: [{\"url\": \"https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f\", \"content\": \"Building the Graph. With our agents defined, we'll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use\"}, {\"url\": \"https://github.com/aws-samples/langgraph-multi-agent\", \"content\": \"The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user's request. The workflow consists of two agent systems: one for\"}]\nAI: [{'id': 'toolu_01WFFJ7k6marS6spKV9a6Tbm', 'input': {'query': 'LangGraph unit test generation agent implementation with OpenAI'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]\nTool: [{\"url\": \"https://github.com/ksm26/AI-Agents-in-LangGraph\", \"content\": \"In this course, you'll explore key principles of designing AI agents with LangGraph, learning how to build flow-based applications and enhance agent capabilities. Here's what you can expect to learn and experience: ... 🔄 LangGraph Implementation: Rebuild your agent using LangGraph, learning about its components and how to combine them\"}, {\"url\": \"https://medium.com/@lorevanoudenhove/how-to-build-ai-agents-with-langgraph-a-step-by-step-guide-5d84d9c7e832\", \"content\": \"In this step, we’ll define how the AI agent manages its state (the ongoing context of the conversation) and ensure it responds appropriately to the user’s input and tool output. This involves creating a template for the conversation, specifying the tools that the assistant will use, and configuring how the AI agent will respond to user input and trigger different functions (like calculating solar savings). Next, we define the tools that the assistant will use during the interaction, with the primary tool being compute_savings, which calculates potential savings based on the user's monthly electricity cost. By following these steps, you have successfully created an AI assistant using LangGraph that can calculate solar panel energy savings based on user inputs.\"}]\nAI: [{'text': 'Let me search for more specific information about unit test generation:', 'type': 'text'}, {'id': 'toolu_01TGbg26nEt6rhJGocf49ZKo', 'input': {'query': 'Automated unit test generation with AI agents Python example'}, 'name': 'tavily_search_results_json', 'type': 'tool_use'}]\nTool: [{\"url\": \"https://dev.to/davydocsurg/automate-unit-testing-with-cover-agent-the-latest-innovation-from-codiumai-50np\", \"content\": \"This interaction is central to the automated test generation process, leveraging the AI's capabilities to create high-quality tests. For example, when the AI Caller sends a prompt describing a function in the app.py file, the LLM generates a corresponding unit test in test_app.py. If the initial test does not achieve the desired coverage or\"}, {\"url\": \"https://developer.nvidia.com/blog/building-ai-agents-to-automate-software-test-case-creation/\", \"content\": \"To streamline this process, the DriveOS team at NVIDIA developed Hephaestus (HEPH), an internal generative AI framework for automatic test generation. HEPH uses LLMs to analyze input documentation and code samples, generating tests that are tailored to the provided requirements. HEPH uses an LLM agent for every step in the test generation process—from document traceability to code generation. Test specification generation: Based on the verification steps from requirements and the identified SWAD and ICD fragments (traceability), HEPH generates both positive and negative test specifications to cover all aspects of the requirement. Based on the verification steps from requirements and the traced SWAD and ICD fragments, HEPH generates test specifications. Test Case Name: Verify successful temperature query for a supported thermal zone\"}]"
+  ]
+}
+[36;1m[1;3m[llm/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence > llm:ChatAnthropic] [15.38s] Exiting LLM run with output:
+[0m{
+  "generations": [
+    [
+      {
+        "text": "Based on the research, I'll create a comprehensive example of a LangGraph agent for generating unit tests:\n\n```markdown\n# LangGraph Unit Test Generation Agent\n\n## Overview\nThis example demonstrates a LangGraph agent designed to automatically generate unit tests for Python functions using AI-powered code analysis and test creation.\n\n## Key Components\n- LangGraph for agent workflow\n- OpenAI for code analysis and test generation\n- Stateful agent design for context-aware test generation\n\n## Implementation\n\n```python\nimport os\nfrom typing import Dict, Any\nfrom langchain_openai import ChatOpenAI\nfrom langgraph.graph import StateGraph, END\nfrom langgraph.checkpoint import MemorySaver\n\n# State definition for the test generation agent\nclass TestGenerationState(TypedDict):\n    input_code: str\n    generated_tests: List[str]\n    analysis_feedback: str\n    iteration_count: int\n\nclass UnitTestGenerationAgent:\n    def __init__(self, openai_api_key):\n        # Initialize the language model\n        self.llm = ChatOpenAI(\n            model=\"gpt-4-turbo\", \n            temperature=0.3,\n            api_key=openai_api_key\n        )\n\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Analyze the input code and prepare for test generation\n        \"\"\"\n        analysis_prompt = f\"\"\"\n        Analyze the following Python code and identify:\n        1. Function purpose\n        2. Input parameters\n        3. Expected return types\n        4. Potential edge cases\n        \n        Code to analyze:\n        {state['input_code']}\n        \"\"\"\n        \n        analysis = self.llm.invoke(analysis_prompt)\n        \n        return {\n            \"analysis_feedback\": analysis.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Generate unit tests based on code analysis\n        \"\"\"\n        test_generation_prompt = f\"\"\"\n        Generate comprehensive unit tests for the following code:\n        \n        Analysis: {state['analysis_feedback']}\n        Original Code:\n        {state['input_code']}\n        \n        Generate tests that cover:\n        - Happy path\n        - Edge cases\n        - Error handling\n        - Input validation\n        \"\"\"\n        \n        generated_tests = self.llm.invoke(test_generation_prompt)\n        \n        return {\n            \"generated_tests\": [generated_tests.content],\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Validate the generated tests\n        \"\"\"\n        validation_prompt = f\"\"\"\n        Evaluate the generated unit tests for completeness and quality:\n        \n        Original Code:\n        {state['input_code']}\n        \n        Generated Tests:\n        {state['generated_tests'][0]}\n        \n        Assess:\n        - Test coverage\n        - Potential missing scenarios\n        - Correctness of assertions\n        \"\"\"\n        \n        validation_feedback = self.llm.invoke(validation_prompt)\n        \n        # Determine if additional iterations are needed\n        is_final = validation_feedback.content.lower().find(\"fully covered\") != -1\n        \n        return {\n            \"analysis_feedback\": validation_feedback.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1,\n            \"is_complete\": is_final\n        }\n\n    def build_graph(self):\n        \"\"\"\n        Construct the LangGraph workflow for test generation\n        \"\"\"\n        workflow = StateGraph(TestGenerationState)\n        \n        # Add nodes for each stage of test generation\n        workflow.add_node(\"analyze_code\", self.analyze_code)\n        workflow.add_node(\"generate_tests\", self.generate_tests)\n        workflow.add_node(\"validate_tests\", self.validate_tests)\n        \n        # Define edges between nodes\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\n        \n        # Conditional exit",
+        "generation_info": null,
+        "type": "ChatGeneration",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "schema",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": "Based on the research, I'll create a comprehensive example of a LangGraph agent for generating unit tests:\n\n```markdown\n# LangGraph Unit Test Generation Agent\n\n## Overview\nThis example demonstrates a LangGraph agent designed to automatically generate unit tests for Python functions using AI-powered code analysis and test creation.\n\n## Key Components\n- LangGraph for agent workflow\n- OpenAI for code analysis and test generation\n- Stateful agent design for context-aware test generation\n\n## Implementation\n\n```python\nimport os\nfrom typing import Dict, Any\nfrom langchain_openai import ChatOpenAI\nfrom langgraph.graph import StateGraph, END\nfrom langgraph.checkpoint import MemorySaver\n\n# State definition for the test generation agent\nclass TestGenerationState(TypedDict):\n    input_code: str\n    generated_tests: List[str]\n    analysis_feedback: str\n    iteration_count: int\n\nclass UnitTestGenerationAgent:\n    def __init__(self, openai_api_key):\n        # Initialize the language model\n        self.llm = ChatOpenAI(\n            model=\"gpt-4-turbo\", \n            temperature=0.3,\n            api_key=openai_api_key\n        )\n\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Analyze the input code and prepare for test generation\n        \"\"\"\n        analysis_prompt = f\"\"\"\n        Analyze the following Python code and identify:\n        1. Function purpose\n        2. Input parameters\n        3. Expected return types\n        4. Potential edge cases\n        \n        Code to analyze:\n        {state['input_code']}\n        \"\"\"\n        \n        analysis = self.llm.invoke(analysis_prompt)\n        \n        return {\n            \"analysis_feedback\": analysis.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Generate unit tests based on code analysis\n        \"\"\"\n        test_generation_prompt = f\"\"\"\n        Generate comprehensive unit tests for the following code:\n        \n        Analysis: {state['analysis_feedback']}\n        Original Code:\n        {state['input_code']}\n        \n        Generate tests that cover:\n        - Happy path\n        - Edge cases\n        - Error handling\n        - Input validation\n        \"\"\"\n        \n        generated_tests = self.llm.invoke(test_generation_prompt)\n        \n        return {\n            \"generated_tests\": [generated_tests.content],\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Validate the generated tests\n        \"\"\"\n        validation_prompt = f\"\"\"\n        Evaluate the generated unit tests for completeness and quality:\n        \n        Original Code:\n        {state['input_code']}\n        \n        Generated Tests:\n        {state['generated_tests'][0]}\n        \n        Assess:\n        - Test coverage\n        - Potential missing scenarios\n        - Correctness of assertions\n        \"\"\"\n        \n        validation_feedback = self.llm.invoke(validation_prompt)\n        \n        # Determine if additional iterations are needed\n        is_final = validation_feedback.content.lower().find(\"fully covered\") != -1\n        \n        return {\n            \"analysis_feedback\": validation_feedback.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1,\n            \"is_complete\": is_final\n        }\n\n    def build_graph(self):\n        \"\"\"\n        Construct the LangGraph workflow for test generation\n        \"\"\"\n        workflow = StateGraph(TestGenerationState)\n        \n        # Add nodes for each stage of test generation\n        workflow.add_node(\"analyze_code\", self.analyze_code)\n        workflow.add_node(\"generate_tests\", self.generate_tests)\n        workflow.add_node(\"validate_tests\", self.validate_tests)\n        \n        # Define edges between nodes\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\n        \n        # Conditional exit",
+            "response_metadata": {
+              "id": "msg_0131eYBjLvM7ZrQXwBTnbLCi",
+              "model": "claude-3-5-haiku-20241022",
+              "stop_reason": "max_tokens",
+              "stop_sequence": null,
+              "usage": {
+                "input_tokens": 1776,
+                "output_tokens": 1024
+              }
+            },
+            "type": "ai",
+            "id": "run-77182740-f048-4ad3-8f9f-fd98863a94f7-0",
+            "usage_metadata": {
+              "input_tokens": 1776,
+              "output_tokens": 1024,
+              "total_tokens": 2800,
+              "input_token_details": {}
+            },
+            "tool_calls": [],
+            "invalid_tool_calls": []
+          }
+        }
+      }
+    ]
+  ],
+  "llm_output": {
+    "id": "msg_0131eYBjLvM7ZrQXwBTnbLCi",
+    "model": "claude-3-5-haiku-20241022",
+    "stop_reason": "max_tokens",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 1776,
+      "output_tokens": 1024
+    }
+  },
+  "run": null,
+  "type": "LLMResult"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:RunnableSequence] [15.38s] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:ChannelWrite<researcher,messages,research,generated_code,documentation>] [1ms] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher > chain:tools_condition] [0ms] Exiting Chain run with output:
+[0m{
+  "output": "__end__"
+}
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:researcher] [15.38s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: Based on the research, I'll create a comprehensive example of a LangGraph agent for generating unit tests:
+
+```markdown
+# LangGraph Unit Test Generation Agent
+
+## Overview
+This example demonstrates a LangGraph agent designed to automatically generate unit tests for Python functions using AI-powered code analysis and test creation.
+
+## Key Components
+- LangGraph for agent workflow
+- OpenAI for code analysis and test generation
+- Stateful agent design for context-aware test generation
+
+## Implementation
+
+```python
+import os
+from typing import Dict, Any
+from langchain_openai import ChatOpenAI
+from langgraph.graph import StateGraph, END
+from langgraph.checkpoint import MemorySaver
+
+# State definition for the test generation agent
+class TestGenerationState(TypedDict):
+    input_code: str
+    generated_tests: List[str]
+    analysis_feedback: str
+    iteration_count: int
+
+class UnitTestGenerationAgent:
+    def __init__(self, openai_api_key):
+        # Initialize the language model
+        self.llm = ChatOpenAI(
+            model="gpt-4-turbo", 
+            temperature=0.3,
+            api_key=openai_api_key
+        )
+
+    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:
+        """
+        Analyze the input code and prepare for test generation
+        """
+        analysis_prompt = f"""
+        Analyze the following Python code and identify:
+        1. Function purpose
+        2. Input parameters
+        3. Expected return types
+        4. Potential edge cases
+        
+        Code to analyze:
+        {state['input_code']}
+        """
+        
+        analysis = self.llm.invoke(analysis_prompt)
+        
+        return {
+            "analysis_feedback": analysis.content,
+            "iteration_count": state.get('iteration_count', 0) + 1
+        }
+
+    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:
+        """
+        Generate unit tests based on code analysis
+        """
+        test_generation_prompt = f"""
+        Generate comprehensive unit tests for the following code:
+        
+        Analysis: {state['analysis_feedback']}
+        Original Code:
+        {state['input_code']}
+        
+        Generate tests that cover:
+        - Happy path
+        - Edge cases
+        - Error handling
+        - Input validation
+        """
+        
+        generated_tests = self.llm.invoke(test_generation_prompt)
+        
+        return {
+            "generated_tests": [generated_tests.content],
+            "iteration_count": state.get('iteration_count', 0) + 1
+        }
+
+    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:
+        """
+        Validate the generated tests
+        """
+        validation_prompt = f"""
+        Evaluate the generated unit tests for completeness and quality:
+        
+        Original Code:
+        {state['input_code']}
+        
+        Generated Tests:
+        {state['generated_tests'][0]}
+        
+        Assess:
+        - Test coverage
+        - Potential missing scenarios
+        - Correctness of assertions
+        """
+        
+        validation_feedback = self.llm.invoke(validation_prompt)
+        
+        # Determine if additional iterations are needed
+        is_final = validation_feedback.content.lower().find("fully covered") != -1
+        
+        return {
+            "analysis_feedback": validation_feedback.content,
+            "iteration_count": state.get('iteration_count', 0) + 1,
+            "is_complete": is_final
+        }
+
+    def build_graph(self):
+        """
+        Construct the LangGraph workflow for test generation
+        """
+        workflow = StateGraph(TestGenerationState)
+        
+        # Add nodes for each stage of test generation
+        workflow.add_node("analyze_code", self.analyze_code)
+        workflow.add_node("generate_tests", self.generate_tests)
+        workflow.add_node("validate_tests", self.validate_tests)
+        
+        # Define edges between nodes
+        workflow.add_edge("analyze_code", "generate_tests")
+        workflow.add_edge("generate_tests", "validate_tests")
+        
+        # Conditional exit
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:research_saver] Entering Chain run with input:
+[0m[inputs]
+Running research_saver
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:research_saver > chain:ChannelWrite<research_saver,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:research_saver > chain:ChannelWrite<research_saver,messages,research,generated_code,documentation>] [0ms] Exiting Chain run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:research_saver] [0ms] Exiting Chain run with output:
+[0m[outputs]
+Assistant: Savign research to system state
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:coder] Entering Chain run with input:
+[0m[inputs]
+Running coder
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence] Entering Chain run with input:
+[0m[inputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence > prompt:ChatPromptTemplate] Entering Prompt run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence > prompt:ChatPromptTemplate] [0ms] Exiting Prompt run with output:
+[0m[outputs]
+[32;1m[1;3m[llm/start][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence > llm:ChatAnthropic] Entering LLM run with input:
+[0m{
+  "prompts": [
+    "System: \n        Generate a detailed, well-structured, and well documented code solution to address the user's input. \n        \n        To achieve this task, you should use your knowledge of the topic and the additional information provided in the\n        research output:\n        Create an example of a langgraph agent that generates unit tests.\n[{\"url\": \"https://medium.com/@lucas.dahan/hands-on-langgraph-building-a-multi-agent-assistant-06aa68ed942f\", \"content\": \"Building the Graph. With our agents defined, we'll create a graph.py file to orchestrate their interactions. The basic graph structure in LangGraph is really simple, here we are going to use\"}, {\"url\": \"https://github.com/aws-samples/langgraph-multi-agent\", \"content\": \"The purpose of this repository is to demonstrate how LangGraph can be used to build a stateless multi-agent workflow to serve as an assistant for data analysis. This workflow leverages the pybaseball Python library to extract data which is then used for analysis based on the user's request. The workflow consists of two agent systems: one for\"}]\n[{\"url\": \"https://github.com/ksm26/AI-Agents-in-LangGraph\", \"content\": \"In this course, you'll explore key principles of designing AI agents with LangGraph, learning how to build flow-based applications and enhance agent capabilities. Here's what you can expect to learn and experience: ... 🔄 LangGraph Implementation: Rebuild your agent using LangGraph, learning about its components and how to combine them\"}, {\"url\": \"https://medium.com/@lorevanoudenhove/how-to-build-ai-agents-with-langgraph-a-step-by-step-guide-5d84d9c7e832\", \"content\": \"In this step, we’ll define how the AI agent manages its state (the ongoing context of the conversation) and ensure it responds appropriately to the user’s input and tool output. This involves creating a template for the conversation, specifying the tools that the assistant will use, and configuring how the AI agent will respond to user input and trigger different functions (like calculating solar savings). Next, we define the tools that the assistant will use during the interaction, with the primary tool being compute_savings, which calculates potential savings based on the user's monthly electricity cost. By following these steps, you have successfully created an AI assistant using LangGraph that can calculate solar panel energy savings based on user inputs.\"}]\n[{\"url\": \"https://dev.to/davydocsurg/automate-unit-testing-with-cover-agent-the-latest-innovation-from-codiumai-50np\", \"content\": \"This interaction is central to the automated test generation process, leveraging the AI's capabilities to create high-quality tests. For example, when the AI Caller sends a prompt describing a function in the app.py file, the LLM generates a corresponding unit test in test_app.py. If the initial test does not achieve the desired coverage or\"}, {\"url\": \"https://developer.nvidia.com/blog/building-ai-agents-to-automate-software-test-case-creation/\", \"content\": \"To streamline this process, the DriveOS team at NVIDIA developed Hephaestus (HEPH), an internal generative AI framework for automatic test generation. HEPH uses LLMs to analyze input documentation and code samples, generating tests that are tailored to the provided requirements. HEPH uses an LLM agent for every step in the test generation process—from document traceability to code generation. Test specification generation: Based on the verification steps from requirements and the identified SWAD and ICD fragments (traceability), HEPH generates both positive and negative test specifications to cover all aspects of the requirement. Based on the verification steps from requirements and the traced SWAD and ICD fragments, HEPH generates test specifications. Test Case Name: Verify successful temperature query for a supported thermal zone\"}]\nBased on the research, I'll create a comprehensive example of a LangGraph agent for generating unit tests:\n\n```markdown\n# LangGraph Unit Test Generation Agent\n\n## Overview\nThis example demonstrates a LangGraph agent designed to automatically generate unit tests for Python functions using AI-powered code analysis and test creation.\n\n## Key Components\n- LangGraph for agent workflow\n- OpenAI for code analysis and test generation\n- Stateful agent design for context-aware test generation\n\n## Implementation\n\n```python\nimport os\nfrom typing import Dict, Any\nfrom langchain_openai import ChatOpenAI\nfrom langgraph.graph import StateGraph, END\nfrom langgraph.checkpoint import MemorySaver\n\n# State definition for the test generation agent\nclass TestGenerationState(TypedDict):\n    input_code: str\n    generated_tests: List[str]\n    analysis_feedback: str\n    iteration_count: int\n\nclass UnitTestGenerationAgent:\n    def __init__(self, openai_api_key):\n        # Initialize the language model\n        self.llm = ChatOpenAI(\n            model=\"gpt-4-turbo\", \n            temperature=0.3,\n            api_key=openai_api_key\n        )\n\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Analyze the input code and prepare for test generation\n        \"\"\"\n        analysis_prompt = f\"\"\"\n        Analyze the following Python code and identify:\n        1. Function purpose\n        2. Input parameters\n        3. Expected return types\n        4. Potential edge cases\n        \n        Code to analyze:\n        {state['input_code']}\n        \"\"\"\n        \n        analysis = self.llm.invoke(analysis_prompt)\n        \n        return {\n            \"analysis_feedback\": analysis.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Generate unit tests based on code analysis\n        \"\"\"\n        test_generation_prompt = f\"\"\"\n        Generate comprehensive unit tests for the following code:\n        \n        Analysis: {state['analysis_feedback']}\n        Original Code:\n        {state['input_code']}\n        \n        Generate tests that cover:\n        - Happy path\n        - Edge cases\n        - Error handling\n        - Input validation\n        \"\"\"\n        \n        generated_tests = self.llm.invoke(test_generation_prompt)\n        \n        return {\n            \"generated_tests\": [generated_tests.content],\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Validate the generated tests\n        \"\"\"\n        validation_prompt = f\"\"\"\n        Evaluate the generated unit tests for completeness and quality:\n        \n        Original Code:\n        {state['input_code']}\n        \n        Generated Tests:\n        {state['generated_tests'][0]}\n        \n        Assess:\n        - Test coverage\n        - Potential missing scenarios\n        - Correctness of assertions\n        \"\"\"\n        \n        validation_feedback = self.llm.invoke(validation_prompt)\n        \n        # Determine if additional iterations are needed\n        is_final = validation_feedback.content.lower().find(\"fully covered\") != -1\n        \n        return {\n            \"analysis_feedback\": validation_feedback.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1,\n            \"is_complete\": is_final\n        }\n\n    def build_graph(self):\n        \"\"\"\n        Construct the LangGraph workflow for test generation\n        \"\"\"\n        workflow = StateGraph(TestGenerationState)\n        \n        # Add nodes for each stage of test generation\n        workflow.add_node(\"analyze_code\", self.analyze_code)\n        workflow.add_node(\"generate_tests\", self.generate_tests)\n        workflow.add_node(\"validate_tests\", self.validate_tests)\n        \n        # Define edges between nodes\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\n        \n        # Conditional exit\nSavign research to system state\n\n        Your response should include:\n        - Prefix: A brief description of the problem and approach.\n        - Imports: Necessary import statements.\n        - Code: The main code block.\n\n        Example:\n        Prefix: This function calculates the factorial of a number.\n        Imports: import math\n        Code: def factorial(n): return math.factorial(n)\n    \nHuman: Create an example of a langgraph agent that generates unit tests."
+  ]
+}
+[36;1m[1;3m[llm/end][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence > llm:ChatAnthropic] [24.48s] Exiting LLM run with output:
+[0m{
+  "generations": [
+    [
+      {
+        "text": "",
+        "generation_info": null,
+        "type": "ChatGeneration",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "schema",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": [
+              {
+                "id": "toolu_01Y1VqxhjBxJsGVnWbmP8Gmw",
+                "input": {
+                  "prefix": "A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.",
+                  "imports": "import os\nfrom typing import Dict, List, TypedDict\nfrom langchain_openai import ChatOpenAI\nfrom langgraph.graph import StateGraph, END\nfrom langgraph.checkpoint import MemorySaver",
+                  "code": "class TestGenerationState(TypedDict):\n    \"\"\"\n    State model for the unit test generation workflow\n    \"\"\"\n    input_code: str\n    generated_tests: List[str]\n    analysis_feedback: str\n    iteration_count: int\n\nclass UnitTestGenerationAgent:\n    def __init__(self, openai_api_key: str):\n        \"\"\"\n        Initialize the unit test generation agent with OpenAI LLM\n        \n        :param openai_api_key: API key for OpenAI services\n        \"\"\"\n        self.llm = ChatOpenAI(\n            model=\"gpt-4-turbo\", \n            temperature=0.3,\n            api_key=openai_api_key\n        )\n\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Analyze the input code to understand its structure and requirements\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with code analysis\n        \"\"\"\n        analysis_prompt = f\"\"\"\n        Deeply analyze the following Python code and provide:\n        1. Function purpose and expected behavior\n        2. Input parameters and their types\n        3. Expected return type and possible return values\n        4. Potential edge cases and error scenarios\n        \n        Code to analyze:\n        {state['input_code']}\n        \"\"\"\n        \n        analysis = self.llm.invoke(analysis_prompt)\n        \n        return {\n            \"analysis_feedback\": analysis.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Generate comprehensive unit tests based on code analysis\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with generated tests\n        \"\"\"\n        test_generation_prompt = f\"\"\"\n        Generate comprehensive pytest unit tests for the following code:\n        \n        Code Analysis: {state['analysis_feedback']}\n        Original Code:\n        {state['input_code']}\n        \n        Generate tests that comprehensively cover:\n        - Typical use cases (happy path)\n        - Edge cases and boundary conditions\n        - Error handling and exception scenarios\n        - Input validation\n        - Different input types and ranges\n        \n        Provide well-structured, readable pytest tests with clear assertions.\n        \"\"\"\n        \n        generated_tests = self.llm.invoke(test_generation_prompt)\n        \n        return {\n            \"generated_tests\": [generated_tests.content],\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Validate the generated tests for completeness and quality\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with validation results\n        \"\"\"\n        validation_prompt = f\"\"\"\n        Critically evaluate the generated unit tests:\n        \n        Original Code:\n        {state['input_code']}\n        \n        Generated Tests:\n        {state['generated_tests'][0]}\n        \n        Assess and provide feedback on:\n        - Test coverage percentage\n        - Completeness of test scenarios\n        - Quality of assertions\n        - Potential missing test cases\n        - Recommended improvements\n        \"\"\"\n        \n        validation_feedback = self.llm.invoke(validation_prompt)\n        \n        # Determine if tests are sufficiently comprehensive\n        is_final = \"fully covered\" in validation_feedback.content.lower()\n        \n        return {\n            \"analysis_feedback\": validation_feedback.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1,\n            \"is_complete\": is_final\n        }\n\n    def build_graph(self) -> StateGraph:\n        \"\"\"\n        Construct the LangGraph workflow for test generation\n        \n        :return: Configured StateGraph for test generation\n        \"\"\"\n        workflow = StateGraph(TestGenerationState)\n        \n        # Define workflow nodes\n        workflow.add_node(\"analyze_code\", self.analyze_code)\n        workflow.add_node(\"generate_tests\", self.generate_tests)\n        workflow.add_node(\"validate_tests\", self.validate_tests)\n        \n        # Set up workflow edges\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\n        \n        # Conditional routing based on test completeness\n        workflow.add_conditional_edges(\n            \"validate_tests\",\n            lambda state: \"END\" if state.get(\"is_complete\", False) else \"analyze_code\",\n            {\n                \"END\": END,\n                \"analyze_code\": \"analyze_code\"\n            }\n        )\n        \n        # Set entry point\n        workflow.set_entry_point(\"analyze_code\")\n        \n        return workflow.compile()\n\n    def generate_unit_tests(self, input_code: str) -> List[str]:\n        \"\"\"\n        Main method to generate unit tests for a given code snippet\n        \n        :param input_code: Python code to generate tests for\n        :return: List of generated test cases\n        \"\"\"\n        initial_state = {\n            \"input_code\": input_code,\n            \"generated_tests\": [],\n            \"analysis_feedback\": \"\",\n            \"iteration_count\": 0\n        }\n        \n        graph = self.build_graph()\n        final_state = graph.invoke(initial_state)\n        \n        return final_state.get(\"generated_tests\", [])\n\n# Example usage\ndef main():\n    api_key = os.getenv(\"OPENAI_API_KEY\")\n    test_generator = UnitTestGenerationAgent(api_key)\n    \n    sample_code = \"\"\"\ndef add_numbers(a: int, b: int) -> int:\n    return a + b\n    \"\"\"\n    \n    generated_tests = test_generator.generate_unit_tests(sample_code)\n    print(\"Generated Unit Tests:\")\n    print(generated_tests)\n\nif __name__ == \"__main__\":\n    main()"
+                },
+                "name": "CodeSolution",
+                "type": "tool_use"
+              }
+            ],
+            "response_metadata": {
+              "id": "msg_013y75K4u16G7ph5eThjLMcC",
+              "model": "claude-3-5-haiku-20241022",
+              "stop_reason": "tool_use",
+              "stop_sequence": null,
+              "usage": {
+                "input_tokens": 2504,
+                "output_tokens": 1633
+              }
+            },
+            "type": "ai",
+            "id": "run-64728f47-7d46-4494-817d-01048cb5def9-0",
+            "tool_calls": [
+              {
+                "name": "CodeSolution",
+                "args": {
+                  "prefix": "A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.",
+                  "imports": "import os\nfrom typing import Dict, List, TypedDict\nfrom langchain_openai import ChatOpenAI\nfrom langgraph.graph import StateGraph, END\nfrom langgraph.checkpoint import MemorySaver",
+                  "code": "class TestGenerationState(TypedDict):\n    \"\"\"\n    State model for the unit test generation workflow\n    \"\"\"\n    input_code: str\n    generated_tests: List[str]\n    analysis_feedback: str\n    iteration_count: int\n\nclass UnitTestGenerationAgent:\n    def __init__(self, openai_api_key: str):\n        \"\"\"\n        Initialize the unit test generation agent with OpenAI LLM\n        \n        :param openai_api_key: API key for OpenAI services\n        \"\"\"\n        self.llm = ChatOpenAI(\n            model=\"gpt-4-turbo\", \n            temperature=0.3,\n            api_key=openai_api_key\n        )\n\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Analyze the input code to understand its structure and requirements\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with code analysis\n        \"\"\"\n        analysis_prompt = f\"\"\"\n        Deeply analyze the following Python code and provide:\n        1. Function purpose and expected behavior\n        2. Input parameters and their types\n        3. Expected return type and possible return values\n        4. Potential edge cases and error scenarios\n        \n        Code to analyze:\n        {state['input_code']}\n        \"\"\"\n        \n        analysis = self.llm.invoke(analysis_prompt)\n        \n        return {\n            \"analysis_feedback\": analysis.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Generate comprehensive unit tests based on code analysis\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with generated tests\n        \"\"\"\n        test_generation_prompt = f\"\"\"\n        Generate comprehensive pytest unit tests for the following code:\n        \n        Code Analysis: {state['analysis_feedback']}\n        Original Code:\n        {state['input_code']}\n        \n        Generate tests that comprehensively cover:\n        - Typical use cases (happy path)\n        - Edge cases and boundary conditions\n        - Error handling and exception scenarios\n        - Input validation\n        - Different input types and ranges\n        \n        Provide well-structured, readable pytest tests with clear assertions.\n        \"\"\"\n        \n        generated_tests = self.llm.invoke(test_generation_prompt)\n        \n        return {\n            \"generated_tests\": [generated_tests.content],\n            \"iteration_count\": state.get('iteration_count', 0) + 1\n        }\n\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        \"\"\"\n        Validate the generated tests for completeness and quality\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with validation results\n        \"\"\"\n        validation_prompt = f\"\"\"\n        Critically evaluate the generated unit tests:\n        \n        Original Code:\n        {state['input_code']}\n        \n        Generated Tests:\n        {state['generated_tests'][0]}\n        \n        Assess and provide feedback on:\n        - Test coverage percentage\n        - Completeness of test scenarios\n        - Quality of assertions\n        - Potential missing test cases\n        - Recommended improvements\n        \"\"\"\n        \n        validation_feedback = self.llm.invoke(validation_prompt)\n        \n        # Determine if tests are sufficiently comprehensive\n        is_final = \"fully covered\" in validation_feedback.content.lower()\n        \n        return {\n            \"analysis_feedback\": validation_feedback.content,\n            \"iteration_count\": state.get('iteration_count', 0) + 1,\n            \"is_complete\": is_final\n        }\n\n    def build_graph(self) -> StateGraph:\n        \"\"\"\n        Construct the LangGraph workflow for test generation\n        \n        :return: Configured StateGraph for test generation\n        \"\"\"\n        workflow = StateGraph(TestGenerationState)\n        \n        # Define workflow nodes\n        workflow.add_node(\"analyze_code\", self.analyze_code)\n        workflow.add_node(\"generate_tests\", self.generate_tests)\n        workflow.add_node(\"validate_tests\", self.validate_tests)\n        \n        # Set up workflow edges\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\n        \n        # Conditional routing based on test completeness\n        workflow.add_conditional_edges(\n            \"validate_tests\",\n            lambda state: \"END\" if state.get(\"is_complete\", False) else \"analyze_code\",\n            {\n                \"END\": END,\n                \"analyze_code\": \"analyze_code\"\n            }\n        )\n        \n        # Set entry point\n        workflow.set_entry_point(\"analyze_code\")\n        \n        return workflow.compile()\n\n    def generate_unit_tests(self, input_code: str) -> List[str]:\n        \"\"\"\n        Main method to generate unit tests for a given code snippet\n        \n        :param input_code: Python code to generate tests for\n        :return: List of generated test cases\n        \"\"\"\n        initial_state = {\n            \"input_code\": input_code,\n            \"generated_tests\": [],\n            \"analysis_feedback\": \"\",\n            \"iteration_count\": 0\n        }\n        \n        graph = self.build_graph()\n        final_state = graph.invoke(initial_state)\n        \n        return final_state.get(\"generated_tests\", [])\n\n# Example usage\ndef main():\n    api_key = os.getenv(\"OPENAI_API_KEY\")\n    test_generator = UnitTestGenerationAgent(api_key)\n    \n    sample_code = \"\"\"\ndef add_numbers(a: int, b: int) -> int:\n    return a + b\n    \"\"\"\n    \n    generated_tests = test_generator.generate_unit_tests(sample_code)\n    print(\"Generated Unit Tests:\")\n    print(generated_tests)\n\nif __name__ == \"__main__\":\n    main()"
+                },
+                "id": "toolu_01Y1VqxhjBxJsGVnWbmP8Gmw",
+                "type": "tool_call"
+              }
+            ],
+            "usage_metadata": {
+              "input_tokens": 2504,
+              "output_tokens": 1633,
+              "total_tokens": 4137,
+              "input_token_details": {}
+            },
+            "invalid_tool_calls": []
+          }
+        }
+      }
+    ]
+  ],
+  "llm_output": {
+    "id": "msg_013y75K4u16G7ph5eThjLMcC",
+    "model": "claude-3-5-haiku-20241022",
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 2504,
+      "output_tokens": 1633
+    }
+  },
+  "run": null,
+  "type": "LLMResult"
+}
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence > parser:PydanticToolsParser] Entering Parser run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence > parser:PydanticToolsParser] [73ms] Exiting Parser run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:coder > chain:RunnableSequence] [24.62s] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:coder > chain:ChannelWrite<coder,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:coder > chain:ChannelWrite<coder,messages,research,generated_code,documentation>] [0ms] Exiting Chain run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:coder] [24.62s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: prefix='A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.' imports='import os\nfrom typing import Dict, List, TypedDict\nfrom langchain_openai import ChatOpenAI\nfrom langgraph.graph import StateGraph, END\nfrom langgraph.checkpoint import MemorySaver' code='class TestGenerationState(TypedDict):\n    """\n    State model for the unit test generation workflow\n    """\n    input_code: str\n    generated_tests: List[str]\n    analysis_feedback: str\n    iteration_count: int\n\nclass UnitTestGenerationAgent:\n    def __init__(self, openai_api_key: str):\n        """\n        Initialize the unit test generation agent with OpenAI LLM\n        \n        :param openai_api_key: API key for OpenAI services\n        """\n        self.llm = ChatOpenAI(\n            model="gpt-4-turbo", \n            temperature=0.3,\n            api_key=openai_api_key\n        )\n\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\n        """\n        Analyze the input code to understand its structure and requirements\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with code analysis\n        """\n        analysis_prompt = f"""\n        Deeply analyze the following Python code and provide:\n        1. Function purpose and expected behavior\n        2. Input parameters and their types\n        3. Expected return type and possible return values\n        4. Potential edge cases and error scenarios\n        \n        Code to analyze:\n        {state[\'input_code\']}\n        """\n        \n        analysis = self.llm.invoke(analysis_prompt)\n        \n        return {\n            "analysis_feedback": analysis.content,\n            "iteration_count": state.get(\'iteration_count\', 0) + 1\n        }\n\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        """\n        Generate comprehensive unit tests based on code analysis\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with generated tests\n        """\n        test_generation_prompt = f"""\n        Generate comprehensive pytest unit tests for the following code:\n        \n        Code Analysis: {state[\'analysis_feedback\']}\n        Original Code:\n        {state[\'input_code\']}\n        \n        Generate tests that comprehensively cover:\n        - Typical use cases (happy path)\n        - Edge cases and boundary conditions\n        - Error handling and exception scenarios\n        - Input validation\n        - Different input types and ranges\n        \n        Provide well-structured, readable pytest tests with clear assertions.\n        """\n        \n        generated_tests = self.llm.invoke(test_generation_prompt)\n        \n        return {\n            "generated_tests": [generated_tests.content],\n            "iteration_count": state.get(\'iteration_count\', 0) + 1\n        }\n\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\n        """\n        Validate the generated tests for completeness and quality\n        \n        :param state: Current state of the test generation process\n        :return: Updated state with validation results\n        """\n        validation_prompt = f"""\n        Critically evaluate the generated unit tests:\n        \n        Original Code:\n        {state[\'input_code\']}\n        \n        Generated Tests:\n        {state[\'generated_tests\'][0]}\n        \n        Assess and provide feedback on:\n        - Test coverage percentage\n        - Completeness of test scenarios\n        - Quality of assertions\n        - Potential missing test cases\n        - Recommended improvements\n        """\n        \n        validation_feedback = self.llm.invoke(validation_prompt)\n        \n        # Determine if tests are sufficiently comprehensive\n        is_final = "fully covered" in validation_feedback.content.lower()\n        \n        return {\n            "analysis_feedback": validation_feedback.content,\n            "iteration_count": state.get(\'iteration_count\', 0) + 1,\n            "is_complete": is_final\n        }\n\n    def build_graph(self) -> StateGraph:\n        """\n        Construct the LangGraph workflow for test generation\n        \n        :return: Configured StateGraph for test generation\n        """\n        workflow = StateGraph(TestGenerationState)\n        \n        # Define workflow nodes\n        workflow.add_node("analyze_code", self.analyze_code)\n        workflow.add_node("generate_tests", self.generate_tests)\n        workflow.add_node("validate_tests", self.validate_tests)\n        \n        # Set up workflow edges\n        workflow.add_edge("analyze_code", "generate_tests")\n        workflow.add_edge("generate_tests", "validate_tests")\n        \n        # Conditional routing based on test completeness\n        workflow.add_conditional_edges(\n            "validate_tests",\n            lambda state: "END" if state.get("is_complete", False) else "analyze_code",\n            {\n                "END": END,\n                "analyze_code": "analyze_code"\n            }\n        )\n        \n        # Set entry point\n        workflow.set_entry_point("analyze_code")\n        \n        return workflow.compile()\n\n    def generate_unit_tests(self, input_code: str) -> List[str]:\n        """\n        Main method to generate unit tests for a given code snippet\n        \n        :param input_code: Python code to generate tests for\n        :return: List of generated test cases\n        """\n        initial_state = {\n            "input_code": input_code,\n            "generated_tests": [],\n            "analysis_feedback": "",\n            "iteration_count": 0\n        }\n        \n        graph = self.build_graph()\n        final_state = graph.invoke(initial_state)\n        \n        return final_state.get("generated_tests", [])\n\n# Example usage\ndef main():\n    api_key = os.getenv("OPENAI_API_KEY")\n    test_generator = UnitTestGenerationAgent(api_key)\n    \n    sample_code = """\ndef add_numbers(a: int, b: int) -> int:\n    return a + b\n    """\n    \n    generated_tests = test_generator.generate_unit_tests(sample_code)\n    print("Generated Unit Tests:")\n    print(generated_tests)\n\nif __name__ == "__main__":\n    main()'
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:documenter] Entering Chain run with input:
+[0m[inputs]
+Running documenter
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:documenter > chain:RunnableSequence] Entering Chain run with input:
+[0m{
+  "input": "Generate markdown documentation for the code solution: prefix='A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.' imports='import os\\nfrom typing import Dict, List, TypedDict\\nfrom langchain_openai import ChatOpenAI\\nfrom langgraph.graph import StateGraph, END\\nfrom langgraph.checkpoint import MemorySaver' code='class TestGenerationState(TypedDict):\\n    \"\"\"\\n    State model for the unit test generation workflow\\n    \"\"\"\\n    input_code: str\\n    generated_tests: List[str]\\n    analysis_feedback: str\\n    iteration_count: int\\n\\nclass UnitTestGenerationAgent:\\n    def __init__(self, openai_api_key: str):\\n        \"\"\"\\n        Initialize the unit test generation agent with OpenAI LLM\\n        \\n        :param openai_api_key: API key for OpenAI services\\n        \"\"\"\\n        self.llm = ChatOpenAI(\\n            model=\"gpt-4-turbo\", \\n            temperature=0.3,\\n            api_key=openai_api_key\\n        )\\n\\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\\n        \"\"\"\\n        Analyze the input code to understand its structure and requirements\\n        \\n        :param state: Current state of the test generation process\\n        :return: Updated state with code analysis\\n        \"\"\"\\n        analysis_prompt = f\"\"\"\\n        Deeply analyze the following Python code and provide:\\n        1. Function purpose and expected behavior\\n        2. Input parameters and their types\\n        3. Expected return type and possible return values\\n        4. Potential edge cases and error scenarios\\n        \\n        Code to analyze:\\n        {state[\\'input_code\\']}\\n        \"\"\"\\n        \\n        analysis = self.llm.invoke(analysis_prompt)\\n        \\n        return {\\n            \"analysis_feedback\": analysis.content,\\n            \"iteration_count\": state.get(\\'iteration_count\\', 0) + 1\\n        }\\n\\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\\n        \"\"\"\\n        Generate comprehensive unit tests based on code analysis\\n        \\n        :param state: Current state of the test generation process\\n        :return: Updated state with generated tests\\n        \"\"\"\\n        test_generation_prompt = f\"\"\"\\n        Generate comprehensive pytest unit tests for the following code:\\n        \\n        Code Analysis: {state[\\'analysis_feedback\\']}\\n        Original Code:\\n        {state[\\'input_code\\']}\\n        \\n        Generate tests that comprehensively cover:\\n        - Typical use cases (happy path)\\n        - Edge cases and boundary conditions\\n        - Error handling and exception scenarios\\n        - Input validation\\n        - Different input types and ranges\\n        \\n        Provide well-structured, readable pytest tests with clear assertions.\\n        \"\"\"\\n        \\n        generated_tests = self.llm.invoke(test_generation_prompt)\\n        \\n        return {\\n            \"generated_tests\": [generated_tests.content],\\n            \"iteration_count\": state.get(\\'iteration_count\\', 0) + 1\\n        }\\n\\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\\n        \"\"\"\\n        Validate the generated tests for completeness and quality\\n        \\n        :param state: Current state of the test generation process\\n        :return: Updated state with validation results\\n        \"\"\"\\n        validation_prompt = f\"\"\"\\n        Critically evaluate the generated unit tests:\\n        \\n        Original Code:\\n        {state[\\'input_code\\']}\\n        \\n        Generated Tests:\\n        {state[\\'generated_tests\\'][0]}\\n        \\n        Assess and provide feedback on:\\n        - Test coverage percentage\\n        - Completeness of test scenarios\\n        - Quality of assertions\\n        - Potential missing test cases\\n        - Recommended improvements\\n        \"\"\"\\n        \\n        validation_feedback = self.llm.invoke(validation_prompt)\\n        \\n        # Determine if tests are sufficiently comprehensive\\n        is_final = \"fully covered\" in validation_feedback.content.lower()\\n        \\n        return {\\n            \"analysis_feedback\": validation_feedback.content,\\n            \"iteration_count\": state.get(\\'iteration_count\\', 0) + 1,\\n            \"is_complete\": is_final\\n        }\\n\\n    def build_graph(self) -> StateGraph:\\n        \"\"\"\\n        Construct the LangGraph workflow for test generation\\n        \\n        :return: Configured StateGraph for test generation\\n        \"\"\"\\n        workflow = StateGraph(TestGenerationState)\\n        \\n        # Define workflow nodes\\n        workflow.add_node(\"analyze_code\", self.analyze_code)\\n        workflow.add_node(\"generate_tests\", self.generate_tests)\\n        workflow.add_node(\"validate_tests\", self.validate_tests)\\n        \\n        # Set up workflow edges\\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\\n        \\n        # Conditional routing based on test completeness\\n        workflow.add_conditional_edges(\\n            \"validate_tests\",\\n            lambda state: \"END\" if state.get(\"is_complete\", False) else \"analyze_code\",\\n            {\\n                \"END\": END,\\n                \"analyze_code\": \"analyze_code\"\\n            }\\n        )\\n        \\n        # Set entry point\\n        workflow.set_entry_point(\"analyze_code\")\\n        \\n        return workflow.compile()\\n\\n    def generate_unit_tests(self, input_code: str) -> List[str]:\\n        \"\"\"\\n        Main method to generate unit tests for a given code snippet\\n        \\n        :param input_code: Python code to generate tests for\\n        :return: List of generated test cases\\n        \"\"\"\\n        initial_state = {\\n            \"input_code\": input_code,\\n            \"generated_tests\": [],\\n            \"analysis_feedback\": \"\",\\n            \"iteration_count\": 0\\n        }\\n        \\n        graph = self.build_graph()\\n        final_state = graph.invoke(initial_state)\\n        \\n        return final_state.get(\"generated_tests\", [])\\n\\n# Example usage\\ndef main():\\n    api_key = os.getenv(\"OPENAI_API_KEY\")\\n    test_generator = UnitTestGenerationAgent(api_key)\\n    \\n    sample_code = \"\"\"\\ndef add_numbers(a: int, b: int) -> int:\\n    return a + b\\n    \"\"\"\\n    \\n    generated_tests = test_generator.generate_unit_tests(sample_code)\\n    print(\"Generated Unit Tests:\")\\n    print(generated_tests)\\n\\nif __name__ == \"__main__\":\\n    main()'"
+}
+[32;1m[1;3m[llm/start][0m [1m[chain:LangGraph > chain:documenter > chain:RunnableSequence > llm:ChatAnthropic] Entering LLM run with input:
+[0m{
+  "prompts": [
+    "Human: Generate markdown documentation for the code solution: prefix='A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.' imports='import os\\nfrom typing import Dict, List, TypedDict\\nfrom langchain_openai import ChatOpenAI\\nfrom langgraph.graph import StateGraph, END\\nfrom langgraph.checkpoint import MemorySaver' code='class TestGenerationState(TypedDict):\\n    \"\"\"\\n    State model for the unit test generation workflow\\n    \"\"\"\\n    input_code: str\\n    generated_tests: List[str]\\n    analysis_feedback: str\\n    iteration_count: int\\n\\nclass UnitTestGenerationAgent:\\n    def __init__(self, openai_api_key: str):\\n        \"\"\"\\n        Initialize the unit test generation agent with OpenAI LLM\\n        \\n        :param openai_api_key: API key for OpenAI services\\n        \"\"\"\\n        self.llm = ChatOpenAI(\\n            model=\"gpt-4-turbo\", \\n            temperature=0.3,\\n            api_key=openai_api_key\\n        )\\n\\n    def analyze_code(self, state: TestGenerationState) -> Dict[str, Any]:\\n        \"\"\"\\n        Analyze the input code to understand its structure and requirements\\n        \\n        :param state: Current state of the test generation process\\n        :return: Updated state with code analysis\\n        \"\"\"\\n        analysis_prompt = f\"\"\"\\n        Deeply analyze the following Python code and provide:\\n        1. Function purpose and expected behavior\\n        2. Input parameters and their types\\n        3. Expected return type and possible return values\\n        4. Potential edge cases and error scenarios\\n        \\n        Code to analyze:\\n        {state[\\'input_code\\']}\\n        \"\"\"\\n        \\n        analysis = self.llm.invoke(analysis_prompt)\\n        \\n        return {\\n            \"analysis_feedback\": analysis.content,\\n            \"iteration_count\": state.get(\\'iteration_count\\', 0) + 1\\n        }\\n\\n    def generate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\\n        \"\"\"\\n        Generate comprehensive unit tests based on code analysis\\n        \\n        :param state: Current state of the test generation process\\n        :return: Updated state with generated tests\\n        \"\"\"\\n        test_generation_prompt = f\"\"\"\\n        Generate comprehensive pytest unit tests for the following code:\\n        \\n        Code Analysis: {state[\\'analysis_feedback\\']}\\n        Original Code:\\n        {state[\\'input_code\\']}\\n        \\n        Generate tests that comprehensively cover:\\n        - Typical use cases (happy path)\\n        - Edge cases and boundary conditions\\n        - Error handling and exception scenarios\\n        - Input validation\\n        - Different input types and ranges\\n        \\n        Provide well-structured, readable pytest tests with clear assertions.\\n        \"\"\"\\n        \\n        generated_tests = self.llm.invoke(test_generation_prompt)\\n        \\n        return {\\n            \"generated_tests\": [generated_tests.content],\\n            \"iteration_count\": state.get(\\'iteration_count\\', 0) + 1\\n        }\\n\\n    def validate_tests(self, state: TestGenerationState) -> Dict[str, Any]:\\n        \"\"\"\\n        Validate the generated tests for completeness and quality\\n        \\n        :param state: Current state of the test generation process\\n        :return: Updated state with validation results\\n        \"\"\"\\n        validation_prompt = f\"\"\"\\n        Critically evaluate the generated unit tests:\\n        \\n        Original Code:\\n        {state[\\'input_code\\']}\\n        \\n        Generated Tests:\\n        {state[\\'generated_tests\\'][0]}\\n        \\n        Assess and provide feedback on:\\n        - Test coverage percentage\\n        - Completeness of test scenarios\\n        - Quality of assertions\\n        - Potential missing test cases\\n        - Recommended improvements\\n        \"\"\"\\n        \\n        validation_feedback = self.llm.invoke(validation_prompt)\\n        \\n        # Determine if tests are sufficiently comprehensive\\n        is_final = \"fully covered\" in validation_feedback.content.lower()\\n        \\n        return {\\n            \"analysis_feedback\": validation_feedback.content,\\n            \"iteration_count\": state.get(\\'iteration_count\\', 0) + 1,\\n            \"is_complete\": is_final\\n        }\\n\\n    def build_graph(self) -> StateGraph:\\n        \"\"\"\\n        Construct the LangGraph workflow for test generation\\n        \\n        :return: Configured StateGraph for test generation\\n        \"\"\"\\n        workflow = StateGraph(TestGenerationState)\\n        \\n        # Define workflow nodes\\n        workflow.add_node(\"analyze_code\", self.analyze_code)\\n        workflow.add_node(\"generate_tests\", self.generate_tests)\\n        workflow.add_node(\"validate_tests\", self.validate_tests)\\n        \\n        # Set up workflow edges\\n        workflow.add_edge(\"analyze_code\", \"generate_tests\")\\n        workflow.add_edge(\"generate_tests\", \"validate_tests\")\\n        \\n        # Conditional routing based on test completeness\\n        workflow.add_conditional_edges(\\n            \"validate_tests\",\\n            lambda state: \"END\" if state.get(\"is_complete\", False) else \"analyze_code\",\\n            {\\n                \"END\": END,\\n                \"analyze_code\": \"analyze_code\"\\n            }\\n        )\\n        \\n        # Set entry point\\n        workflow.set_entry_point(\"analyze_code\")\\n        \\n        return workflow.compile()\\n\\n    def generate_unit_tests(self, input_code: str) -> List[str]:\\n        \"\"\"\\n        Main method to generate unit tests for a given code snippet\\n        \\n        :param input_code: Python code to generate tests for\\n        :return: List of generated test cases\\n        \"\"\"\\n        initial_state = {\\n            \"input_code\": input_code,\\n            \"generated_tests\": [],\\n            \"analysis_feedback\": \"\",\\n            \"iteration_count\": 0\\n        }\\n        \\n        graph = self.build_graph()\\n        final_state = graph.invoke(initial_state)\\n        \\n        return final_state.get(\"generated_tests\", [])\\n\\n# Example usage\\ndef main():\\n    api_key = os.getenv(\"OPENAI_API_KEY\")\\n    test_generator = UnitTestGenerationAgent(api_key)\\n    \\n    sample_code = \"\"\"\\ndef add_numbers(a: int, b: int) -> int:\\n    return a + b\\n    \"\"\"\\n    \\n    generated_tests = test_generator.generate_unit_tests(sample_code)\\n    print(\"Generated Unit Tests:\")\\n    print(generated_tests)\\n\\nif __name__ == \"__main__\":\\n    main()'"
+  ]
+}
+[36;1m[1;3m[llm/end][0m [1m[chain:LangGraph > chain:documenter > chain:RunnableSequence > llm:ChatAnthropic] [10.97s] Exiting LLM run with output:
+[0m{
+  "generations": [
+    [
+      {
+        "text": "",
+        "generation_info": null,
+        "type": "ChatGeneration",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "schema",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": [
+              {
+                "id": "toolu_01UA5prwfKXPYbSGKNv1KDf2",
+                "input": {
+                  "prefix": "A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.",
+                  "markdown": "# Automated Unit Test Generation Agent\n\n## Overview\nThis LangGraph-based agent automates the process of generating comprehensive unit tests for Python functions using advanced AI techniques. The agent employs a sophisticated multi-stage workflow to analyze code, generate tests, and validate test coverage.\n\n## Key Components\n\n### 1. TestGenerationState\nA TypedDict that maintains the state of the test generation process:\n- `input_code`: Original source code to be tested\n- `generated_tests`: List of generated test cases\n- `analysis_feedback`: Insights from code analysis\n- `iteration_count`: Number of workflow iterations\n\n### 2. UnitTestGenerationAgent Class\n\n#### Initialization\n- Uses OpenAI's GPT-4 Turbo model for intelligent test generation\n- Configurable temperature for creativity and precision\n\n#### Workflow Stages\n\n##### a. Code Analysis (`analyze_code`)\n- Deeply examines the input code\n- Identifies:\n  - Function purpose\n  - Input parameters and types\n  - Expected return values\n  - Potential edge cases and error scenarios\n\n##### b. Test Generation (`generate_tests`)\n- Creates comprehensive pytest unit tests\n- Covers:\n  - Happy path scenarios\n  - Edge cases\n  - Error handling\n  - Input validation\n  - Different input types and ranges\n\n##### c. Test Validation (`validate_tests`)\n- Critically evaluates generated tests\n- Assesses:\n  - Test coverage percentage\n  - Scenario completeness\n  - Assertion quality\n  - Potential improvements\n\n### 3. LangGraph Workflow\n- Implements an intelligent, iterative test generation process\n- Uses conditional edges to:\n  - Analyze code\n  - Generate tests\n  - Validate and refine tests\n- Continues iteration until tests are deemed comprehensive\n\n## Usage Example\n```python\napi_key = os.getenv(\"OPENAI_API_KEY\")\ntest_generator = UnitTestGenerationAgent(api_key)\n\nsample_code = \"\"\"\ndef add_numbers(a: int, b: int) -> int:\n    return a + b\n\"\"\"\n\ngenerated_tests = test_generator.generate_unit_tests(sample_code)\nprint(generated_tests)\n```\n\n## Requirements\n- Python 3.8+\n- OpenAI API Key\n- Dependencies:\n  - langchain-openai\n  - langgraph\n  - typing\n\n## Advantages\n- Automated test generation\n- Comprehensive test coverage\n- Iterative refinement\n- Adaptable to different code structures\n- Reduces manual testing effort\n\n## Potential Improvements\n- Support for more complex code structures\n- Integration with continuous integration (CI) workflows\n- Enhanced error handling\n- Multiple language support\n\n## Limitations\n- Dependent on OpenAI's language model capabilities\n- Requires a valid OpenAI API key\n- Test quality may vary based on code complexity"
+                },
+                "name": "Documentation",
+                "type": "tool_use"
+              }
+            ],
+            "response_metadata": {
+              "id": "msg_015zLwmcF2v7KgMjuzTLGBLc",
+              "model": "claude-3-5-haiku-20241022",
+              "stop_reason": "tool_use",
+              "stop_sequence": null,
+              "usage": {
+                "input_tokens": 2205,
+                "output_tokens": 745
+              }
+            },
+            "type": "ai",
+            "id": "run-24fef6dc-8c89-46fa-894d-8999dc66eb09-0",
+            "tool_calls": [
+              {
+                "name": "Documentation",
+                "args": {
+                  "prefix": "A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.",
+                  "markdown": "# Automated Unit Test Generation Agent\n\n## Overview\nThis LangGraph-based agent automates the process of generating comprehensive unit tests for Python functions using advanced AI techniques. The agent employs a sophisticated multi-stage workflow to analyze code, generate tests, and validate test coverage.\n\n## Key Components\n\n### 1. TestGenerationState\nA TypedDict that maintains the state of the test generation process:\n- `input_code`: Original source code to be tested\n- `generated_tests`: List of generated test cases\n- `analysis_feedback`: Insights from code analysis\n- `iteration_count`: Number of workflow iterations\n\n### 2. UnitTestGenerationAgent Class\n\n#### Initialization\n- Uses OpenAI's GPT-4 Turbo model for intelligent test generation\n- Configurable temperature for creativity and precision\n\n#### Workflow Stages\n\n##### a. Code Analysis (`analyze_code`)\n- Deeply examines the input code\n- Identifies:\n  - Function purpose\n  - Input parameters and types\n  - Expected return values\n  - Potential edge cases and error scenarios\n\n##### b. Test Generation (`generate_tests`)\n- Creates comprehensive pytest unit tests\n- Covers:\n  - Happy path scenarios\n  - Edge cases\n  - Error handling\n  - Input validation\n  - Different input types and ranges\n\n##### c. Test Validation (`validate_tests`)\n- Critically evaluates generated tests\n- Assesses:\n  - Test coverage percentage\n  - Scenario completeness\n  - Assertion quality\n  - Potential improvements\n\n### 3. LangGraph Workflow\n- Implements an intelligent, iterative test generation process\n- Uses conditional edges to:\n  - Analyze code\n  - Generate tests\n  - Validate and refine tests\n- Continues iteration until tests are deemed comprehensive\n\n## Usage Example\n```python\napi_key = os.getenv(\"OPENAI_API_KEY\")\ntest_generator = UnitTestGenerationAgent(api_key)\n\nsample_code = \"\"\"\ndef add_numbers(a: int, b: int) -> int:\n    return a + b\n\"\"\"\n\ngenerated_tests = test_generator.generate_unit_tests(sample_code)\nprint(generated_tests)\n```\n\n## Requirements\n- Python 3.8+\n- OpenAI API Key\n- Dependencies:\n  - langchain-openai\n  - langgraph\n  - typing\n\n## Advantages\n- Automated test generation\n- Comprehensive test coverage\n- Iterative refinement\n- Adaptable to different code structures\n- Reduces manual testing effort\n\n## Potential Improvements\n- Support for more complex code structures\n- Integration with continuous integration (CI) workflows\n- Enhanced error handling\n- Multiple language support\n\n## Limitations\n- Dependent on OpenAI's language model capabilities\n- Requires a valid OpenAI API key\n- Test quality may vary based on code complexity"
+                },
+                "id": "toolu_01UA5prwfKXPYbSGKNv1KDf2",
+                "type": "tool_call"
+              }
+            ],
+            "usage_metadata": {
+              "input_tokens": 2205,
+              "output_tokens": 745,
+              "total_tokens": 2950,
+              "input_token_details": {}
+            },
+            "invalid_tool_calls": []
+          }
+        }
+      }
+    ]
+  ],
+  "llm_output": {
+    "id": "msg_015zLwmcF2v7KgMjuzTLGBLc",
+    "model": "claude-3-5-haiku-20241022",
+    "stop_reason": "tool_use",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 2205,
+      "output_tokens": 745
+    }
+  },
+  "run": null,
+  "type": "LLMResult"
+}
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:documenter > chain:RunnableSequence > parser:PydanticToolsParser] Entering Parser run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:documenter > chain:RunnableSequence > parser:PydanticToolsParser] [1ms] Exiting Parser run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:documenter > chain:RunnableSequence] [10.97s] Exiting Chain run with output:
+[0m[outputs]
+[32;1m[1;3m[chain/start][0m [1m[chain:LangGraph > chain:documenter > chain:ChannelWrite<documenter,messages,research,generated_code,documentation>] Entering Chain run with input:
+[0m[inputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:documenter > chain:ChannelWrite<documenter,messages,research,generated_code,documentation>] [0ms] Exiting Chain run with output:
+[0m[outputs]
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph > chain:documenter] [10.98s] Exiting Chain run with output:
+[0m[outputs]
+Assistant: prefix='A LangGraph agent for automated unit test generation that leverages AI to analyze code, generate comprehensive tests, and validate test coverage. The agent uses a multi-stage workflow to create high-quality unit tests for Python functions.' markdown='# Automated Unit Test Generation Agent\n\n## Overview\nThis LangGraph-based agent automates the process of generating comprehensive unit tests for Python functions using advanced AI techniques. The agent employs a sophisticated multi-stage workflow to analyze code, generate tests, and validate test coverage.\n\n## Key Components\n\n### 1. TestGenerationState\nA TypedDict that maintains the state of the test generation process:\n- `input_code`: Original source code to be tested\n- `generated_tests`: List of generated test cases\n- `analysis_feedback`: Insights from code analysis\n- `iteration_count`: Number of workflow iterations\n\n### 2. UnitTestGenerationAgent Class\n\n#### Initialization\n- Uses OpenAI\'s GPT-4 Turbo model for intelligent test generation\n- Configurable temperature for creativity and precision\n\n#### Workflow Stages\n\n##### a. Code Analysis (`analyze_code`)\n- Deeply examines the input code\n- Identifies:\n  - Function purpose\n  - Input parameters and types\n  - Expected return values\n  - Potential edge cases and error scenarios\n\n##### b. Test Generation (`generate_tests`)\n- Creates comprehensive pytest unit tests\n- Covers:\n  - Happy path scenarios\n  - Edge cases\n  - Error handling\n  - Input validation\n  - Different input types and ranges\n\n##### c. Test Validation (`validate_tests`)\n- Critically evaluates generated tests\n- Assesses:\n  - Test coverage percentage\n  - Scenario completeness\n  - Assertion quality\n  - Potential improvements\n\n### 3. LangGraph Workflow\n- Implements an intelligent, iterative test generation process\n- Uses conditional edges to:\n  - Analyze code\n  - Generate tests\n  - Validate and refine tests\n- Continues iteration until tests are deemed comprehensive\n\n## Usage Example\n```python\napi_key = os.getenv("OPENAI_API_KEY")\ntest_generator = UnitTestGenerationAgent(api_key)\n\nsample_code = """\ndef add_numbers(a: int, b: int) -> int:\n    return a + b\n"""\n\ngenerated_tests = test_generator.generate_unit_tests(sample_code)\nprint(generated_tests)\n```\n\n## Requirements\n- Python 3.8+\n- OpenAI API Key\n- Dependencies:\n  - langchain-openai\n  - langgraph\n  - typing\n\n## Advantages\n- Automated test generation\n- Comprehensive test coverage\n- Iterative refinement\n- Adaptable to different code structures\n- Reduces manual testing effort\n\n## Potential Improvements\n- Support for more complex code structures\n- Integration with continuous integration (CI) workflows\n- Enhanced error handling\n- Multiple language support\n\n## Limitations\n- Dependent on OpenAI\'s language model capabilities\n- Requires a valid OpenAI API key\n- Test quality may vary based on code complexity'
+[36;1m[1;3m[chain/end][0m [1m[chain:LangGraph] [68.62s] Exiting Chain run with output:
+[0m[outputs]
